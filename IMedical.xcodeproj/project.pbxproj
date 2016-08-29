@@ -7,6 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		889A47541D732D8300E58568 /* homeLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 889A47521D732D8300E58568 /* homeLogo.png */; };
+		889A47551D732D8300E58568 /* UAL.png in Resources */ = {isa = PBXBuildFile; fileRef = 889A47531D732D8300E58568 /* UAL.png */; };
+		889A47571D73306300E58568 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 889A47561D73306300E58568 /* background.jpg */; };
+		889B913F1D7374B1003F8258 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 889C73D91D720BD7008B0DCD /* main.m */; };
+		889B91401D7374B1003F8258 /* UALAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 889C73DD1D720BD7008B0DCD /* UALAppDelegate.m */; };
+		889B91411D7374B1003F8258 /* UALHospitalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 889C740A1D720FE2008B0DCD /* UALHospitalTableViewController.m */; };
+		889B91421D7374B1003F8258 /* UALPacienteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 889C74161D72208C008B0DCD /* UALPacienteTableViewController.m */; };
+		889B91431D7374B1003F8258 /* UALAddPacienteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 889EFEB21D72307D007449C4 /* UALAddPacienteViewController.m */; };
+		889B91441D7374B1003F8258 /* UALAddHospitalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 889C74131D72183F008B0DCD /* UALAddHospitalViewController.m */; };
+		889B91451D7374B1003F8258 /* UALViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 889C73E31D720BD7008B0DCD /* UALViewController.m */; };
+		889B91461D7374B1003F8258 /* GestorBD.m in Sources */ = {isa = PBXBuildFile; fileRef = 889C74071D720E36008B0DCD /* GestorBD.m */; };
+		889B91481D7374B1003F8258 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 889C74041D720E0C008B0DCD /* libsqlite3.dylib */; };
+		889B91491D7374B1003F8258 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889C73CF1D720BD7008B0DCD /* CoreGraphics.framework */; };
+		889B914A1D7374B1003F8258 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889C73D11D720BD7008B0DCD /* UIKit.framework */; };
+		889B914B1D7374B1003F8258 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889C73CD1D720BD7008B0DCD /* Foundation.framework */; };
+		889B914D1D7374B1003F8258 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 889A47561D73306300E58568 /* background.jpg */; };
+		889B914E1D7374B1003F8258 /* UAL.png in Resources */ = {isa = PBXBuildFile; fileRef = 889A47531D732D8300E58568 /* UAL.png */; };
+		889B914F1D7374B1003F8258 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 889C73E51D720BD7008B0DCD /* Images.xcassets */; };
+		889B91501D7374B1003F8258 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 889C73D61D720BD7008B0DCD /* InfoPlist.strings */; };
+		889B91511D7374B1003F8258 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 889C73DF1D720BD7008B0DCD /* Main.storyboard */; };
+		889B91521D7374B1003F8258 /* homeLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 889A47521D732D8300E58568 /* homeLogo.png */; };
+		889B91531D7374B1003F8258 /* imedical.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 88AC63EB1D724FEA00BDABEF /* imedical.sqlite */; };
+		889B915E1D737848003F8258 /* UALPacienteDetalleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 889B915D1D737848003F8258 /* UALPacienteDetalleViewController.m */; };
+		889B915F1D737848003F8258 /* UALPacienteDetalleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 889B915D1D737848003F8258 /* UALPacienteDetalleViewController.m */; };
 		889C73CE1D720BD7008B0DCD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889C73CD1D720BD7008B0DCD /* Foundation.framework */; };
 		889C73D01D720BD7008B0DCD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889C73CF1D720BD7008B0DCD /* CoreGraphics.framework */; };
 		889C73D21D720BD7008B0DCD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889C73D11D720BD7008B0DCD /* UIKit.framework */; };
@@ -21,6 +45,29 @@
 		889C73EF1D720BD7008B0DCD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889C73D11D720BD7008B0DCD /* UIKit.framework */; };
 		889C73F71D720BD7008B0DCD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 889C73F51D720BD7008B0DCD /* InfoPlist.strings */; };
 		889C73F91D720BD7008B0DCD /* IMedicalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 889C73F81D720BD7008B0DCD /* IMedicalTests.m */; };
+		889C74051D720E0C008B0DCD /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 889C74041D720E0C008B0DCD /* libsqlite3.dylib */; };
+		889C74081D720E36008B0DCD /* GestorBD.m in Sources */ = {isa = PBXBuildFile; fileRef = 889C74071D720E36008B0DCD /* GestorBD.m */; };
+		889C740B1D720FE2008B0DCD /* UALHospitalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 889C740A1D720FE2008B0DCD /* UALHospitalTableViewController.m */; };
+		889C74141D72183F008B0DCD /* UALAddHospitalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 889C74131D72183F008B0DCD /* UALAddHospitalViewController.m */; };
+		889C74171D72208C008B0DCD /* UALPacienteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 889C74161D72208C008B0DCD /* UALPacienteTableViewController.m */; };
+		889EFEB31D72307D007449C4 /* UALAddPacienteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 889EFEB21D72307D007449C4 /* UALAddPacienteViewController.m */; };
+		88A6B1B91D743494006D6340 /* liver.png in Resources */ = {isa = PBXBuildFile; fileRef = 88A6B1B81D743494006D6340 /* liver.png */; };
+		88A6B1BB1D7435C8006D6340 /* pulse.png in Resources */ = {isa = PBXBuildFile; fileRef = 88A6B1BA1D7435C8006D6340 /* pulse.png */; };
+		88A6B1BE1D74374F006D6340 /* UALHepatitisTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A6B1BD1D74374F006D6340 /* UALHepatitisTableViewController.m */; };
+		88A6B1BF1D74374F006D6340 /* UALHepatitisTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A6B1BD1D74374F006D6340 /* UALHepatitisTableViewController.m */; };
+		88A6B1C21D743ECC006D6340 /* UALAddHepatitisViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A6B1C11D743ECC006D6340 /* UALAddHepatitisViewController.m */; };
+		88A6B1C31D743ECC006D6340 /* UALAddHepatitisViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A6B1C11D743ECC006D6340 /* UALAddHepatitisViewController.m */; };
+		88A6B1C61D74421B006D6340 /* man_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 88A6B1C41D74421B006D6340 /* man_icon.png */; };
+		88A6B1C71D74421B006D6340 /* man_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 88A6B1C41D74421B006D6340 /* man_icon.png */; };
+		88A6B1C81D74421B006D6340 /* woman_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 88A6B1C51D74421B006D6340 /* woman_icon.png */; };
+		88A6B1C91D74421B006D6340 /* woman_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 88A6B1C51D74421B006D6340 /* woman_icon.png */; };
+		88A6B1CB1D745044006D6340 /* alert_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 88A6B1CA1D745044006D6340 /* alert_icon.png */; };
+		88A6B1CC1D745044006D6340 /* alert_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 88A6B1CA1D745044006D6340 /* alert_icon.png */; };
+		88A6B1CE1D7450C4006D6340 /* ok_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 88A6B1CD1D7450C4006D6340 /* ok_icon.png */; };
+		88A6B1CF1D7450C4006D6340 /* ok_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 88A6B1CD1D7450C4006D6340 /* ok_icon.png */; };
+		88A6B1D01D745B43006D6340 /* liver.png in Resources */ = {isa = PBXBuildFile; fileRef = 88A6B1B81D743494006D6340 /* liver.png */; };
+		88A6B1D11D745B46006D6340 /* pulse.png in Resources */ = {isa = PBXBuildFile; fileRef = 88A6B1BA1D7435C8006D6340 /* pulse.png */; };
+		88AC63EC1D724FEA00BDABEF /* imedical.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 88AC63EB1D724FEA00BDABEF /* imedical.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +81,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		889A47521D732D8300E58568 /* homeLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeLogo.png; sourceTree = "<group>"; };
+		889A47531D732D8300E58568 /* UAL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UAL.png; sourceTree = "<group>"; };
+		889A47561D73306300E58568 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		889B91571D7374B1003F8258 /* IMedical copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IMedical copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		889B91581D7374B1003F8258 /* IMedical copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "IMedical copy-Info.plist"; path = "/Users/joseluis/Desktop/proyectoSeptiembre/IMedical/IMedical copy-Info.plist"; sourceTree = "<absolute>"; };
+		889B915C1D737848003F8258 /* UALPacienteDetalleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UALPacienteDetalleViewController.h; path = ../UALPacienteDetalleViewController.h; sourceTree = "<group>"; };
+		889B915D1D737848003F8258 /* UALPacienteDetalleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UALPacienteDetalleViewController.m; path = ../UALPacienteDetalleViewController.m; sourceTree = "<group>"; };
 		889C73CA1D720BD7008B0DCD /* IMedical.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IMedical.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		889C73CD1D720BD7008B0DCD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		889C73CF1D720BD7008B0DCD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -53,13 +107,47 @@
 		889C73F41D720BD7008B0DCD /* IMedicalTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IMedicalTests-Info.plist"; sourceTree = "<group>"; };
 		889C73F61D720BD7008B0DCD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		889C73F81D720BD7008B0DCD /* IMedicalTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMedicalTests.m; sourceTree = "<group>"; };
+		889C74041D720E0C008B0DCD /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		889C74061D720E36008B0DCD /* GestorBD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestorBD.h; sourceTree = "<group>"; };
+		889C74071D720E36008B0DCD /* GestorBD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestorBD.m; sourceTree = "<group>"; };
+		889C74091D720FE2008B0DCD /* UALHospitalTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UALHospitalTableViewController.h; sourceTree = "<group>"; };
+		889C740A1D720FE2008B0DCD /* UALHospitalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UALHospitalTableViewController.m; sourceTree = "<group>"; };
+		889C74121D72183E008B0DCD /* UALAddHospitalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UALAddHospitalViewController.h; sourceTree = "<group>"; };
+		889C74131D72183F008B0DCD /* UALAddHospitalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UALAddHospitalViewController.m; sourceTree = "<group>"; };
+		889C74151D72208C008B0DCD /* UALPacienteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UALPacienteTableViewController.h; sourceTree = "<group>"; };
+		889C74161D72208C008B0DCD /* UALPacienteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UALPacienteTableViewController.m; sourceTree = "<group>"; };
+		889EFEB11D72307D007449C4 /* UALAddPacienteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UALAddPacienteViewController.h; sourceTree = "<group>"; };
+		889EFEB21D72307D007449C4 /* UALAddPacienteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UALAddPacienteViewController.m; sourceTree = "<group>"; };
+		88A6B1B81D743494006D6340 /* liver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = liver.png; sourceTree = "<group>"; };
+		88A6B1BA1D7435C8006D6340 /* pulse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pulse.png; sourceTree = "<group>"; };
+		88A6B1BC1D74374F006D6340 /* UALHepatitisTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UALHepatitisTableViewController.h; sourceTree = "<group>"; };
+		88A6B1BD1D74374F006D6340 /* UALHepatitisTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UALHepatitisTableViewController.m; sourceTree = "<group>"; };
+		88A6B1C01D743ECC006D6340 /* UALAddHepatitisViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UALAddHepatitisViewController.h; sourceTree = "<group>"; };
+		88A6B1C11D743ECC006D6340 /* UALAddHepatitisViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UALAddHepatitisViewController.m; sourceTree = "<group>"; };
+		88A6B1C41D74421B006D6340 /* man_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = man_icon.png; sourceTree = "<group>"; };
+		88A6B1C51D74421B006D6340 /* woman_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = woman_icon.png; sourceTree = "<group>"; };
+		88A6B1CA1D745044006D6340 /* alert_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alert_icon.png; sourceTree = "<group>"; };
+		88A6B1CD1D7450C4006D6340 /* ok_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ok_icon.png; sourceTree = "<group>"; };
+		88AC63EB1D724FEA00BDABEF /* imedical.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = imedical.sqlite; path = ../../imedical.sqlite; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		889B91471D7374B1003F8258 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				889B91481D7374B1003F8258 /* libsqlite3.dylib in Frameworks */,
+				889B91491D7374B1003F8258 /* CoreGraphics.framework in Frameworks */,
+				889B914A1D7374B1003F8258 /* UIKit.framework in Frameworks */,
+				889B914B1D7374B1003F8258 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		889C73C71D720BD7008B0DCD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				889C74051D720E0C008B0DCD /* libsqlite3.dylib in Frameworks */,
 				889C73D01D720BD7008B0DCD /* CoreGraphics.framework in Frameworks */,
 				889C73D21D720BD7008B0DCD /* UIKit.framework in Frameworks */,
 				889C73CE1D720BD7008B0DCD /* Foundation.framework in Frameworks */,
@@ -86,6 +174,7 @@
 				889C73F21D720BD7008B0DCD /* IMedicalTests */,
 				889C73CC1D720BD7008B0DCD /* Frameworks */,
 				889C73CB1D720BD7008B0DCD /* Products */,
+				889B91581D7374B1003F8258 /* IMedical copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,6 +183,7 @@
 			children = (
 				889C73CA1D720BD7008B0DCD /* IMedical.app */,
 				889C73EB1D720BD7008B0DCD /* IMedicalTests.xctest */,
+				889B91571D7374B1003F8258 /* IMedical copy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -101,6 +191,7 @@
 		889C73CC1D720BD7008B0DCD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				889C74041D720E0C008B0DCD /* libsqlite3.dylib */,
 				889C73CD1D720BD7008B0DCD /* Foundation.framework */,
 				889C73CF1D720BD7008B0DCD /* CoreGraphics.framework */,
 				889C73D11D720BD7008B0DCD /* UIKit.framework */,
@@ -112,13 +203,31 @@
 		889C73D31D720BD7008B0DCD /* IMedical */ = {
 			isa = PBXGroup;
 			children = (
+				889C74061D720E36008B0DCD /* GestorBD.h */,
+				889C74071D720E36008B0DCD /* GestorBD.m */,
+				889CBED11D7319AB000DEA24 /* Imagenes */,
+				889C73E51D720BD7008B0DCD /* Images.xcassets */,
+				88AC63EB1D724FEA00BDABEF /* imedical.sqlite */,
+				889C73DF1D720BD7008B0DCD /* Main.storyboard */,
+				889C73D41D720BD7008B0DCD /* Supporting Files */,
+				889C74121D72183E008B0DCD /* UALAddHospitalViewController.h */,
+				889C74131D72183F008B0DCD /* UALAddHospitalViewController.m */,
+				889EFEB11D72307D007449C4 /* UALAddPacienteViewController.h */,
+				889EFEB21D72307D007449C4 /* UALAddPacienteViewController.m */,
 				889C73DC1D720BD7008B0DCD /* UALAppDelegate.h */,
 				889C73DD1D720BD7008B0DCD /* UALAppDelegate.m */,
-				889C73DF1D720BD7008B0DCD /* Main.storyboard */,
+				889C74091D720FE2008B0DCD /* UALHospitalTableViewController.h */,
+				889C740A1D720FE2008B0DCD /* UALHospitalTableViewController.m */,
+				889B915C1D737848003F8258 /* UALPacienteDetalleViewController.h */,
+				889B915D1D737848003F8258 /* UALPacienteDetalleViewController.m */,
+				889C74151D72208C008B0DCD /* UALPacienteTableViewController.h */,
+				889C74161D72208C008B0DCD /* UALPacienteTableViewController.m */,
 				889C73E21D720BD7008B0DCD /* UALViewController.h */,
 				889C73E31D720BD7008B0DCD /* UALViewController.m */,
-				889C73E51D720BD7008B0DCD /* Images.xcassets */,
-				889C73D41D720BD7008B0DCD /* Supporting Files */,
+				88A6B1BC1D74374F006D6340 /* UALHepatitisTableViewController.h */,
+				88A6B1BD1D74374F006D6340 /* UALHepatitisTableViewController.m */,
+				88A6B1C01D743ECC006D6340 /* UALAddHepatitisViewController.h */,
+				88A6B1C11D743ECC006D6340 /* UALAddHepatitisViewController.m */,
 			);
 			path = IMedical;
 			sourceTree = "<group>";
@@ -152,9 +261,42 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		889CBED11D7319AB000DEA24 /* Imagenes */ = {
+			isa = PBXGroup;
+			children = (
+				88A6B1CD1D7450C4006D6340 /* ok_icon.png */,
+				88A6B1CA1D745044006D6340 /* alert_icon.png */,
+				88A6B1C41D74421B006D6340 /* man_icon.png */,
+				88A6B1C51D74421B006D6340 /* woman_icon.png */,
+				88A6B1BA1D7435C8006D6340 /* pulse.png */,
+				88A6B1B81D743494006D6340 /* liver.png */,
+				889A47561D73306300E58568 /* background.jpg */,
+				889A47521D732D8300E58568 /* homeLogo.png */,
+				889A47531D732D8300E58568 /* UAL.png */,
+			);
+			name = Imagenes;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		889B913D1D7374B1003F8258 /* IMedical copy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 889B91541D7374B1003F8258 /* Build configuration list for PBXNativeTarget "IMedical copy" */;
+			buildPhases = (
+				889B913E1D7374B1003F8258 /* Sources */,
+				889B91471D7374B1003F8258 /* Frameworks */,
+				889B914C1D7374B1003F8258 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "IMedical copy";
+			productName = IMedical;
+			productReference = 889B91571D7374B1003F8258 /* IMedical copy.app */;
+			productType = "com.apple.product-type.application";
+		};
 		889C73C91D720BD7008B0DCD /* IMedical */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 889C73FC1D720BD7008B0DCD /* Build configuration list for PBXNativeTarget "IMedical" */;
@@ -220,18 +362,49 @@
 			targets = (
 				889C73C91D720BD7008B0DCD /* IMedical */,
 				889C73EA1D720BD7008B0DCD /* IMedicalTests */,
+				889B913D1D7374B1003F8258 /* IMedical copy */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		889B914C1D7374B1003F8258 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				889B914D1D7374B1003F8258 /* background.jpg in Resources */,
+				88A6B1CC1D745044006D6340 /* alert_icon.png in Resources */,
+				88A6B1D01D745B43006D6340 /* liver.png in Resources */,
+				88A6B1C91D74421B006D6340 /* woman_icon.png in Resources */,
+				889B914E1D7374B1003F8258 /* UAL.png in Resources */,
+				88A6B1CF1D7450C4006D6340 /* ok_icon.png in Resources */,
+				889B914F1D7374B1003F8258 /* Images.xcassets in Resources */,
+				88A6B1D11D745B46006D6340 /* pulse.png in Resources */,
+				889B91501D7374B1003F8258 /* InfoPlist.strings in Resources */,
+				889B91511D7374B1003F8258 /* Main.storyboard in Resources */,
+				889B91521D7374B1003F8258 /* homeLogo.png in Resources */,
+				88A6B1C71D74421B006D6340 /* man_icon.png in Resources */,
+				889B91531D7374B1003F8258 /* imedical.sqlite in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		889C73C81D720BD7008B0DCD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88A6B1C81D74421B006D6340 /* woman_icon.png in Resources */,
+				889A47571D73306300E58568 /* background.jpg in Resources */,
+				889A47551D732D8300E58568 /* UAL.png in Resources */,
+				88A6B1C61D74421B006D6340 /* man_icon.png in Resources */,
 				889C73E61D720BD7008B0DCD /* Images.xcassets in Resources */,
 				889C73D81D720BD7008B0DCD /* InfoPlist.strings in Resources */,
+				88A6B1B91D743494006D6340 /* liver.png in Resources */,
 				889C73E11D720BD7008B0DCD /* Main.storyboard in Resources */,
+				889A47541D732D8300E58568 /* homeLogo.png in Resources */,
+				88A6B1CE1D7450C4006D6340 /* ok_icon.png in Resources */,
+				88A6B1BB1D7435C8006D6340 /* pulse.png in Resources */,
+				88AC63EC1D724FEA00BDABEF /* imedical.sqlite in Resources */,
+				88A6B1CB1D745044006D6340 /* alert_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,13 +419,39 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		889B913E1D7374B1003F8258 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				889B913F1D7374B1003F8258 /* main.m in Sources */,
+				889B915F1D737848003F8258 /* UALPacienteDetalleViewController.m in Sources */,
+				889B91401D7374B1003F8258 /* UALAppDelegate.m in Sources */,
+				88A6B1C31D743ECC006D6340 /* UALAddHepatitisViewController.m in Sources */,
+				889B91411D7374B1003F8258 /* UALHospitalTableViewController.m in Sources */,
+				88A6B1BF1D74374F006D6340 /* UALHepatitisTableViewController.m in Sources */,
+				889B91421D7374B1003F8258 /* UALPacienteTableViewController.m in Sources */,
+				889B91431D7374B1003F8258 /* UALAddPacienteViewController.m in Sources */,
+				889B91441D7374B1003F8258 /* UALAddHospitalViewController.m in Sources */,
+				889B91451D7374B1003F8258 /* UALViewController.m in Sources */,
+				889B91461D7374B1003F8258 /* GestorBD.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		889C73C61D720BD7008B0DCD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				889C73DA1D720BD7008B0DCD /* main.m in Sources */,
+				889B915E1D737848003F8258 /* UALPacienteDetalleViewController.m in Sources */,
 				889C73DE1D720BD7008B0DCD /* UALAppDelegate.m in Sources */,
+				88A6B1C21D743ECC006D6340 /* UALAddHepatitisViewController.m in Sources */,
+				889C740B1D720FE2008B0DCD /* UALHospitalTableViewController.m in Sources */,
+				88A6B1BE1D74374F006D6340 /* UALHepatitisTableViewController.m in Sources */,
+				889C74171D72208C008B0DCD /* UALPacienteTableViewController.m in Sources */,
+				889EFEB31D72307D007449C4 /* UALAddPacienteViewController.m in Sources */,
+				889C74141D72183F008B0DCD /* UALAddHospitalViewController.m in Sources */,
 				889C73E41D720BD7008B0DCD /* UALViewController.m in Sources */,
+				889C74081D720E36008B0DCD /* GestorBD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +501,34 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		889B91551D7374B1003F8258 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "IMedical/IMedical-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = VERSION2;
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = VERSION2;
+				INFOPLIST_FILE = "IMedical copy-Info.plist";
+				PRODUCT_NAME = "IMedical copy";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		889B91561D7374B1003F8258 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "IMedical/IMedical-Prefix.pch";
+				INFOPLIST_FILE = "IMedical copy-Info.plist";
+				PRODUCT_NAME = "IMedical copy";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 		889C73FA1D720BD7008B0DCD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -441,6 +668,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		889B91541D7374B1003F8258 /* Build configuration list for PBXNativeTarget "IMedical copy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				889B91551D7374B1003F8258 /* Debug */,
+				889B91561D7374B1003F8258 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		889C73C51D720BD6008B0DCD /* Build configuration list for PBXProject "IMedical" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -457,6 +693,7 @@
 				889C73FE1D720BD7008B0DCD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		889C73FF1D720BD7008B0DCD /* Build configuration list for PBXNativeTarget "IMedicalTests" */ = {
 			isa = XCConfigurationList;
@@ -465,6 +702,7 @@
 				889C74011D720BD7008B0DCD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
