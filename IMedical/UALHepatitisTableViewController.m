@@ -16,13 +16,14 @@
 
 @property (nonatomic) int edadDiagSelected;
 @property (nonatomic) int idDiagSelected;
-@property (nonatomic) NSString* sexoDiagSelected;
-@property (nonatomic) NSString* ascitisDiagSelected;
+@property (nonatomic) int sexoDiagSelected;
+@property (nonatomic) int ascitisDiagSelected;
 @property (nonatomic) double albuminaDiagSelected;
 @property (nonatomic) int sgotDiagSelected;
-@property (nonatomic) NSString* agrandDiagSelected;
-@property (nonatomic) NSString* firmDiagSelected;
-@property (nonatomic) NSString* diagDiagSelected;
+@property (nonatomic) int agrandDiagSelected;
+@property (nonatomic) int firmDiagSelected;
+@property (nonatomic) int diagDiagSelected;
+@property (nonatomic) int spidersDiagSelected;
 
 
 
@@ -46,7 +47,7 @@
     
     self.tabla.delegate = self;
     self.tabla.dataSource = self;
-    self.gestorBD = [[GestorBD alloc] initWithDatabaseFilename:@"imedical.sqlite"];
+    self.gestorBD = [[GestorBD alloc] initWithDatabaseFilename:@"imedicalF.sqlite"];
     self.title = [NSString stringWithFormat:@"Diagnósticos Hepatitis"];
     
     [self cargarDatos];
@@ -95,6 +96,7 @@
         
     }else if ([segue.identifier isEqualToString:@"detalleHepatitis"]){
         UALAddHepatitisViewController* destino = [segue destinationViewController];
+        destino.dniPaciente = self.dniPaciente;
         destino.idDiagSelected = self.idDiagSelected;
         destino.edadDiagSelected = self.edadDiagSelected;
         destino.sexoDiagSelected = self.sexoDiagSelected;
@@ -104,6 +106,7 @@
         destino.agrandDiagSelected = self.agrandDiagSelected;
         destino.firmDiagSelected = self.firmDiagSelected;
         destino.diagDiagSelected = self.diagDiagSelected;
+        destino.spidersDiagSelected = self.spidersDiagSelected;
         
     }
 }
@@ -114,13 +117,15 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"diagCell" forIndexPath:indexPath];
     
     NSInteger indexOfDiagnostico = [self.gestorBD.arrNombresCols indexOfObject:@"diagnostico"];
-    NSInteger indexOfId = [self.gestorBD.arrNombresCols indexOfObject:@"id"];
+    NSInteger indexOfFecha = [self.gestorBD.arrNombresCols indexOfObject:@"fecha"];
 
-    NSString *diagnostico = [NSString stringWithFormat:@"%@", [[self.arrayDatos objectAtIndex: indexPath.row] objectAtIndex:indexOfDiagnostico]];
+
+    int diagnostico = [[[self.arrayDatos objectAtIndex:indexPath.row] objectAtIndex:indexOfDiagnostico]intValue];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@", [[self.arrayDatos objectAtIndex: indexPath.row] objectAtIndex:indexOfFecha]];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", [[self.arrayDatos objectAtIndex: indexPath.row] objectAtIndex:indexOfId]];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", [[self.arrayDatos objectAtIndex: indexPath.row] objectAtIndex:indexOfDiagnostico]];
-    if([diagnostico  isEqual: @"TRUE"]) cell.imageView.image = [UIImage imageNamed:@"alert_icon.png"];
+    if(diagnostico == 1) cell.detailTextLabel.text = @"POSITIVO";
+    else cell.detailTextLabel.text = @"NEGATIVO";
+    if(diagnostico == 1) cell.imageView.image = [UIImage imageNamed:@"alert_icon.png"];
     else cell.imageView.image = [UIImage imageNamed:@"ok_icon.png"];
 
     
@@ -138,17 +143,20 @@
     NSInteger indexOfSgot = [self.gestorBD.arrNombresCols indexOfObject:@"sgot"];
     NSInteger indexOfAgrand = [self.gestorBD.arrNombresCols indexOfObject:@"agrandamientoHigado"];
     NSInteger indexOffirm = [self.gestorBD.arrNombresCols indexOfObject:@"firmHigado"];
+    NSInteger indexOfSpiders = [self.gestorBD.arrNombresCols indexOfObject:@"spiders"];
+
     indexOfedad = 1;
     
     self.idDiagSelected = [[[self.arrayDatos objectAtIndex:indexPath.row] objectAtIndex:indexOfId]intValue];
-    self.diagDiagSelected = [NSString stringWithFormat:@"%@", [[self.arrayDatos objectAtIndex: indexPath.row] objectAtIndex:indexOfDiagnostico]];
+    self.diagDiagSelected = [[[self.arrayDatos objectAtIndex:indexPath.row] objectAtIndex:indexOfDiagnostico]intValue];
     self.edadDiagSelected = [[[self.arrayDatos objectAtIndex:indexPath.row] objectAtIndex:indexOfedad]intValue];
-    self.sexoDiagSelected = [NSString stringWithFormat:@"%@", [[self.arrayDatos objectAtIndex: indexPath.row] objectAtIndex:indexOfSexo]];
-    self.ascitisDiagSelected = [NSString stringWithFormat:@"%@", [[self.arrayDatos objectAtIndex: indexPath.row] objectAtIndex:indexOfAscitis]];
+    self.sexoDiagSelected = [[[self.arrayDatos objectAtIndex:indexPath.row] objectAtIndex:indexOfSexo]intValue];
+    self.ascitisDiagSelected = [[[self.arrayDatos objectAtIndex:indexPath.row] objectAtIndex:indexOfAscitis]intValue];
     self.albuminaDiagSelected = [[[self.arrayDatos objectAtIndex:indexPath.row] objectAtIndex:indexOfAlbumina]doubleValue];
     self.sgotDiagSelected = [[[self.arrayDatos objectAtIndex:indexPath.row] objectAtIndex:indexOfSgot]intValue];
-    self.agrandDiagSelected = [NSString stringWithFormat:@"%@", [[self.arrayDatos objectAtIndex: indexPath.row] objectAtIndex:indexOfAgrand]];
-    self.firmDiagSelected = [NSString stringWithFormat:@"%@", [[self.arrayDatos objectAtIndex: indexPath.row] objectAtIndex:indexOffirm]];
+    self.agrandDiagSelected = [[[self.arrayDatos objectAtIndex:indexPath.row] objectAtIndex:indexOfAgrand]intValue];
+    self.firmDiagSelected = [[[self.arrayDatos objectAtIndex:indexPath.row] objectAtIndex:indexOffirm]intValue];
+    self.spidersDiagSelected = [[[self.arrayDatos objectAtIndex:indexPath.row] objectAtIndex:indexOfSpiders]intValue];
     
     [self performSegueWithIdentifier:@"detalleHepatitis" sender:self];
     

@@ -60,7 +60,7 @@
 {
     [super viewDidLoad];
     self.gestorBD = [[GestorBD alloc]
-                     initWithDatabaseFilename:@"imedical.sqlite"];
+                     initWithDatabaseFilename:@"imedicalF.sqlite"];
     if(self.idPacienteEdit == -1) {
         self.title = [NSString stringWithFormat:@"Nuevo Paciente %@", self.nombreHospital];
         

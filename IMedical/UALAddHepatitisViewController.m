@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UISwitch *sexo;
 @property (weak, nonatomic) IBOutlet UISwitch *ascitis;
 @property (weak, nonatomic) IBOutlet UISlider *albumina;
+@property (weak, nonatomic) IBOutlet UISwitch *spiders;
 @property (weak, nonatomic) IBOutlet UISlider *sgot;
 @property (weak, nonatomic) IBOutlet UISwitch *agrand;
 @property (weak, nonatomic) IBOutlet UISwitch *firm;
@@ -46,12 +47,17 @@
 {
     [super viewDidLoad];
     self.gestorBD = [[GestorBD alloc]
-                     initWithDatabaseFilename:@"imedical.sqlite"];
+                     initWithDatabaseFilename:@"imedicalF.sqlite"];
     self.title = [NSString stringWithFormat:@"Diagn. %@", self.dniPaciente];
     if (self.idDiagSelected != -1) {
         self.edad.value = self.edadDiagSelected;
         self.albumina.value = self.albuminaDiagSelected;
         self.sgot.value = self.sgotDiagSelected;
+        self.edadLabel.text = [NSString stringWithFormat:@"%i", self.edadDiagSelected];
+        self.albuLabel.text = [NSString stringWithFormat:@"%i", self.sgotDiagSelected];
+        self.sgotLabel.text = [NSString stringWithFormat:@"%f", self.albuminaDiagSelected];
+
+
     
     }
 }
@@ -61,29 +67,68 @@
     NSString *consulta;
     /*if(self.idPacienteEdit == -1){*/
     
-        NSString *diagnostico = @"FALSE";
+    NSInteger diagnostico;
         if(![self.ascitis isOn]){
-            diagnostico = @"TRUE";
-        }else{
-            if (self.albumina.value > 2,8) {
-                if (![self.firm isOn]) {
-                    if (self.albumina.value <= 2,9) {
-                        diagnostico = @"TRUE";
+            if (![self.spiders isOn]) {
+                diagnostico = 0;
+            }else{
+                if (![self.sexo isOn]) {
+                    diagnostico = 0;
+                }else{
+                    if (![self.firm isOn]) {
+                        if (self.edad.value <= 40) {
+                            diagnostico = 0;
+
+                        }else{
+                            diagnostico = 1;
+                        }
+                    }else{
+                        if (self.sgot.value <= 101) {
+                            diagnostico = 0;
+                        }else{
+                            if (![self.agrand isOn]) {
+                                diagnostico = 1;
+                            }else{
+                                diagnostico = 0;
+                            }
+                        }
                     }
-                }else diagnostico = @"TRUE";
+                }
+            }
+        }else{
+            if (self.albumina.value <= 2.8) {
+                diagnostico = 1;
+            }else{
+                if (![self.firm isOn]) {
+                    if (self.albumina.value <= 2.9) {
+                        diagnostico = 0;
+                    }else {
+                        diagnostico = 1;
+                    }
+                }else{
+                    diagnostico = 0;
+                }
             }
         }
-        NSString *sexo = @"FALSE";
-        if ([self.sexo isOn]) sexo = @"TRUE";
-        NSString *ascitis = @"FALSE";
-        if ([self.ascitis isOn]) ascitis = @"TRUE";
-        NSString *agrand = @"FALSE";
-        if ([self.agrand isOn]) agrand = @"TRUE";
-        NSString *firm = @"FALSE";
-        if ([self.firm isOn]) firm = @"TRUE";
+        NSInteger sexo = 0;
+        if ([self.sexo isOn]) sexo = 1;
+        NSInteger ascitis = 0;
+        if ([self.ascitis isOn]) ascitis = 1;
+        NSInteger agrand = 0;
+        if ([self.agrand isOn]) agrand = 1;
+        NSInteger firm = 0;
+        if ([self.firm isOn]) firm = 1;
+        NSInteger spiders = 0;
+        if ([self.spiders isOn]) firm = 1;
+    
+    float f = self.albumina.value;
+    int i = self.sgot.value;
+    
+    NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd-MM-yyyy"];
+    NSString *fecha = (@"%@",[dateFormatter stringFromDate:[NSDate date]]);
 
-
-        consulta = [NSString stringWithFormat: @"insert into diagnostico_hepatitis values (null, '%f','%@','%@', '%f', '%f', '%@', '%@', '%@', '%i')", self.edad.value, sexo, ascitis, self.albumina.value, self.sgot.value,agrand,firm, diagnostico, self.idPaciente];
+        consulta = [NSString stringWithFormat: @"insert into diagnostico_hepatitis values (null, %f, %i,'%@', %i, %f, %f, %i, %i, %i, %i, %i)", self.edad.value, sexo, fecha, ascitis, self.albumina.value, self.sgot.value, spiders, agrand, firm, diagnostico, self.idPaciente];
     /*}else{
         consulta = [NSString stringWithFormat:@"update paciente set nombre='%@', apellidos='%@', dni='%@', numSegSocial='%@' where id=%d", self.nombre.text, self.apellidos.text, self.dni.text, self.numSegSocial.text, self.idPacienteEdit];
     }*/

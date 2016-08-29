@@ -362,6 +362,17 @@
                                 <rect key="frame" x="269" y="114" width="34" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arañas Vasculares" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BgA-N1-Fq7">
+                                <rect key="frame" x="170" y="152" width="141" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="pxk-u4-6RW">
+                                <rect key="frame" x="170" y="181" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -383,6 +394,7 @@
                         <outlet property="sexo" destination="CNA-hN-eZH" id="29Z-C3-ENe"/>
                         <outlet property="sgot" destination="AUh-Od-p0U" id="uqL-oC-5bk"/>
                         <outlet property="sgotLabel" destination="Y9a-98-WqK" id="ZOF-Hc-b8H"/>
+                        <outlet property="spiders" destination="pxk-u4-6RW" id="4aG-pb-aiX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BUi-yO-TtU" userLabel="First Responder" sceneMemberID="firstResponder"/>

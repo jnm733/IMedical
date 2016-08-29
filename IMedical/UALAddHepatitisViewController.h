@@ -21,12 +21,14 @@ delegate;
 
 @property (nonatomic) int edadDiagSelected;
 @property (nonatomic) int idDiagSelected;
-@property (nonatomic) NSString* sexoDiagSelected;
-@property (nonatomic) NSString* ascitisDiagSelected;
+@property (nonatomic) int sexoDiagSelected;
+@property (nonatomic) int ascitisDiagSelected;
 @property (nonatomic) double albuminaDiagSelected;
 @property (nonatomic) int sgotDiagSelected;
-@property (nonatomic) NSString* agrandDiagSelected;
-@property (nonatomic) NSString* firmDiagSelected;
-@property (nonatomic) NSString* diagDiagSelected;
+@property (nonatomic) int agrandDiagSelected;
+@property (nonatomic) int firmDiagSelected;
+@property (nonatomic) int diagDiagSelected;
+@property (nonatomic) int spidersDiagSelected;
+
 
 @end

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		882694821D7479B900EB4D16 /* imedicalF.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 882694811D7479B900EB4D16 /* imedicalF.sqlite */; };
+		882694831D7479B900EB4D16 /* imedicalF.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 882694811D7479B900EB4D16 /* imedicalF.sqlite */; };
 		889A47541D732D8300E58568 /* homeLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 889A47521D732D8300E58568 /* homeLogo.png */; };
 		889A47551D732D8300E58568 /* UAL.png in Resources */ = {isa = PBXBuildFile; fileRef = 889A47531D732D8300E58568 /* UAL.png */; };
 		889A47571D73306300E58568 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 889A47561D73306300E58568 /* background.jpg */; };
@@ -28,7 +30,6 @@
 		889B91501D7374B1003F8258 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 889C73D61D720BD7008B0DCD /* InfoPlist.strings */; };
 		889B91511D7374B1003F8258 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 889C73DF1D720BD7008B0DCD /* Main.storyboard */; };
 		889B91521D7374B1003F8258 /* homeLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 889A47521D732D8300E58568 /* homeLogo.png */; };
-		889B91531D7374B1003F8258 /* imedical.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 88AC63EB1D724FEA00BDABEF /* imedical.sqlite */; };
 		889B915E1D737848003F8258 /* UALPacienteDetalleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 889B915D1D737848003F8258 /* UALPacienteDetalleViewController.m */; };
 		889B915F1D737848003F8258 /* UALPacienteDetalleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 889B915D1D737848003F8258 /* UALPacienteDetalleViewController.m */; };
 		889C73CE1D720BD7008B0DCD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889C73CD1D720BD7008B0DCD /* Foundation.framework */; };
@@ -67,7 +68,6 @@
 		88A6B1CF1D7450C4006D6340 /* ok_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 88A6B1CD1D7450C4006D6340 /* ok_icon.png */; };
 		88A6B1D01D745B43006D6340 /* liver.png in Resources */ = {isa = PBXBuildFile; fileRef = 88A6B1B81D743494006D6340 /* liver.png */; };
 		88A6B1D11D745B46006D6340 /* pulse.png in Resources */ = {isa = PBXBuildFile; fileRef = 88A6B1BA1D7435C8006D6340 /* pulse.png */; };
-		88AC63EC1D724FEA00BDABEF /* imedical.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 88AC63EB1D724FEA00BDABEF /* imedical.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +81,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		882694811D7479B900EB4D16 /* imedicalF.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = imedicalF.sqlite; path = ../../imedicalF.sqlite; sourceTree = "<group>"; };
 		889A47521D732D8300E58568 /* homeLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeLogo.png; sourceTree = "<group>"; };
 		889A47531D732D8300E58568 /* UAL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UAL.png; sourceTree = "<group>"; };
 		889A47561D73306300E58568 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
@@ -128,7 +129,6 @@
 		88A6B1C51D74421B006D6340 /* woman_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = woman_icon.png; sourceTree = "<group>"; };
 		88A6B1CA1D745044006D6340 /* alert_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alert_icon.png; sourceTree = "<group>"; };
 		88A6B1CD1D7450C4006D6340 /* ok_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ok_icon.png; sourceTree = "<group>"; };
-		88AC63EB1D724FEA00BDABEF /* imedical.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = imedical.sqlite; path = ../../imedical.sqlite; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,11 +203,11 @@
 		889C73D31D720BD7008B0DCD /* IMedical */ = {
 			isa = PBXGroup;
 			children = (
+				882694811D7479B900EB4D16 /* imedicalF.sqlite */,
 				889C74061D720E36008B0DCD /* GestorBD.h */,
 				889C74071D720E36008B0DCD /* GestorBD.m */,
 				889CBED11D7319AB000DEA24 /* Imagenes */,
 				889C73E51D720BD7008B0DCD /* Images.xcassets */,
-				88AC63EB1D724FEA00BDABEF /* imedical.sqlite */,
 				889C73DF1D720BD7008B0DCD /* Main.storyboard */,
 				889C73D41D720BD7008B0DCD /* Supporting Files */,
 				889C74121D72183E008B0DCD /* UALAddHospitalViewController.h */,
@@ -373,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				889B914D1D7374B1003F8258 /* background.jpg in Resources */,
+				882694831D7479B900EB4D16 /* imedicalF.sqlite in Resources */,
 				88A6B1CC1D745044006D6340 /* alert_icon.png in Resources */,
 				88A6B1D01D745B43006D6340 /* liver.png in Resources */,
 				88A6B1C91D74421B006D6340 /* woman_icon.png in Resources */,
@@ -384,7 +385,6 @@
 				889B91511D7374B1003F8258 /* Main.storyboard in Resources */,
 				889B91521D7374B1003F8258 /* homeLogo.png in Resources */,
 				88A6B1C71D74421B006D6340 /* man_icon.png in Resources */,
-				889B91531D7374B1003F8258 /* imedical.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +393,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88A6B1C81D74421B006D6340 /* woman_icon.png in Resources */,
+				882694821D7479B900EB4D16 /* imedicalF.sqlite in Resources */,
 				889A47571D73306300E58568 /* background.jpg in Resources */,
 				889A47551D732D8300E58568 /* UAL.png in Resources */,
 				88A6B1C61D74421B006D6340 /* man_icon.png in Resources */,
@@ -403,7 +404,6 @@
 				889A47541D732D8300E58568 /* homeLogo.png in Resources */,
 				88A6B1CE1D7450C4006D6340 /* ok_icon.png in Resources */,
 				88A6B1BB1D7435C8006D6340 /* pulse.png in Resources */,
-				88AC63EC1D724FEA00BDABEF /* imedical.sqlite in Resources */,
 				88A6B1CB1D745044006D6340 /* alert_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

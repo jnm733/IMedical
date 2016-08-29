@@ -45,7 +45,7 @@
     [super viewDidLoad];
     self.tabla.delegate = self;
     self.tabla.dataSource = self;
-    self.gestorBD = [[GestorBD alloc] initWithDatabaseFilename:@"imedical.sqlite"];
+    self.gestorBD = [[GestorBD alloc] initWithDatabaseFilename:@"imedicalF.sqlite"];
     
     [self cargarDatos];
     
