@@ -1,5 +1,5 @@
 //
-//  UALAddHepatitisViewController.h
+//  UALAddPostOperatorioViewController.h
 //  IMedical
 //
 //  Created by Jose Luis on 8/29/16.
@@ -8,20 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol UALAddHepatitisViewController
+@protocol UALAddPostOperatorioViewController
 -(void) editionDidFinished;
 @end
 
-@interface UALAddHepatitisViewController : UIViewController
 
-@property (nonatomic, strong) id<UALAddHepatitisViewController>
-delegate;
+@interface UALAddPostOperatorioViewController : UIViewController
+
+
+@property (nonatomic, strong) id<UALAddPostOperatorioViewController> delegate;
 @property (nonatomic) int idPaciente;
 @property (nonatomic) NSString* dniPaciente;
 
 @property (nonatomic) int idDiagSelected;
-
-
 
 
 @end

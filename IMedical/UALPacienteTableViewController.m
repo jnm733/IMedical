@@ -101,8 +101,10 @@
     }
 
 }
+#ifndef VERSION1
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     NSInteger indexOfId = [self.gestorBD.arrNombresCols indexOfObject:@"id"];
     NSInteger indexOfNombre = [self.gestorBD.arrNombresCols indexOfObject:@"nombre"];
     NSInteger indexOfApellidos = [self.gestorBD.arrNombresCols indexOfObject:@"apellidos"];
@@ -125,6 +127,8 @@
     [self performSegueWithIdentifier:@"detallePaciente" sender:self];
     
 }
+#endif
+
 -(void) editionDidFinished{
     [self cargarDatos];
 }

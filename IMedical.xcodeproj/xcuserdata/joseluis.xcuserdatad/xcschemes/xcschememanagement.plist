@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>IMedical copy copy.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>IMedical copy.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -28,6 +33,11 @@
 			<true/>
 		</dict>
 		<key>889C73EA1D720BD7008B0DCD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>88ACA0851D74A45000EDF6A3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

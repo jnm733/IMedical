@@ -8,11 +8,14 @@
 
 #import "UALPacienteDetalleViewController.h"
 #import "UALHepatitisTableViewController.h"
+#import "UALPostOperatorioTableViewController.h"
 
 @interface UALPacienteDetalleViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *nombre;
 @property (weak, nonatomic) IBOutlet UILabel *dni;
+@property (weak, nonatomic) IBOutlet UIButton *postButton;
+@property (weak, nonatomic) IBOutlet UILabel *postLabel;
 
 @end
 
@@ -34,11 +37,19 @@
     self.title = [NSString stringWithFormat:@"%@, %@", self.nombrePaciente, self.dniPaciente];
     self.nombre.text = [NSString stringWithFormat:@"%@, %@", self.apellidosPaciente, self.nombrePaciente];
     self.dni.text = self.dniPaciente;
+    #ifndef VERSION3
+    self.postButton.hidden = YES;
+    self.postLabel.hidden = YES;
+    #endif
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"hepatitisList"]){
         UALHepatitisTableViewController* destino = [segue destinationViewController];
+        destino.idPaciente = self.idPaciente;
+        destino.dniPaciente = self.dniPaciente;
+    }else if ([segue.identifier isEqualToString:@"postOperatorioList"]){
+        UALPostOperatorioTableViewController* destino = [segue destinationViewController];
         destino.idPaciente = self.idPaciente;
         destino.dniPaciente = self.dniPaciente;
     }

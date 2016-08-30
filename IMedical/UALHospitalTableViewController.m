@@ -94,7 +94,7 @@
     NSInteger indexOfLocalizacion = [self.gestorBD.arrNombresCols indexOfObject:@"localizacion"];
 
 
-    cell.imageView.image = [UIImage imageNamed:@"UAL.png"];
+    cell.imageView.image = [UIImage imageNamed:@"homeLogo.png"];
     cell.textLabel.text = [NSString stringWithFormat:@"%@", [[self.arrayDatos objectAtIndex: indexPath.row] objectAtIndex:indexOfNombre]];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", [[self.arrayDatos objectAtIndex: indexPath.row] objectAtIndex:indexOfLocalizacion]];
     

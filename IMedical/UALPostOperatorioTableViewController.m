@@ -1,15 +1,15 @@
 //
-//  UALHepatitisTableViewController.m
+//  UALPostOperatorioTableViewController.m
 //  IMedical
 //
 //  Created by Jose Luis on 8/29/16.
 //  Copyright (c) 2016 Jose Luis Navarro Motos. All rights reserved.
 //
 
-#import "UALHepatitisTableViewController.h"
+#import "UALPostOperatorioTableViewController.h"
 #import "GestorBD.h"
 
-@interface UALHepatitisTableViewController ()
+@interface UALPostOperatorioTableViewController ()
 
 @property (nonatomic, strong) GestorBD* gestorBD;
 @property (nonatomic, strong) NSArray* arrayDatos;
@@ -18,10 +18,9 @@
 
 
 
-
 @end
 
-@implementation UALHepatitisTableViewController
+@implementation UALPostOperatorioTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -39,16 +38,17 @@
     self.tabla.delegate = self;
     self.tabla.dataSource = self;
     self.gestorBD = [[GestorBD alloc] initWithDatabaseFilename:@"imedicalF.sqlite"];
-    self.title = [NSString stringWithFormat:@"Diagnósticos Hepatitis"];
+    self.title = [NSString stringWithFormat:@"Diagnósticos PostOperatorios"];
     
     [self cargarDatos];
 }
+
 -(void) editionDidFinished{
     [self cargarDatos];
 }
 
 -(void) cargarDatos{
-    NSString *consulta = [NSString stringWithFormat: @"select * from diagnostico_hepatitis where PACIENTE_id=%d",self.idPaciente];
+    NSString *consulta = [NSString stringWithFormat: @"select * from diagnostico_postoperatorio where PACIENTE_id=%d",self.idPaciente];
     if (self.arrayDatos != nil) self.arrayDatos = nil;
     self.arrayDatos = [[NSArray alloc] initWithArray:[self.gestorBD
                                                       selectFromDB:consulta]];
@@ -77,43 +77,45 @@
 }
 
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"postCell" forIndexPath:indexPath];
+    
+    NSInteger indexOfDiagnostico = [self.gestorBD.arrNombresCols indexOfObject:@"decision"];
+    NSInteger indexOfFecha = [self.gestorBD.arrNombresCols indexOfObject:@"fecha"];
+    
+    
+    int diagnostico = [[[self.arrayDatos objectAtIndex:indexPath.row] objectAtIndex:indexOfDiagnostico]intValue];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@", [[self.arrayDatos objectAtIndex: indexPath.row] objectAtIndex:indexOfFecha]];
+    if (diagnostico == 1) {
+        cell.detailTextLabel.text = @"Listo para el alta médica";
+        cell.imageView.image = [UIImage imageNamed:@"goHome_icon.png"];
+    }else if (diagnostico == 2){
+        cell.detailTextLabel.text = @"Enviar a planta general de hospital";
+        cell.imageView.image = [UIImage imageNamed:@"hospital_icon.png"];
+    }else{
+        cell.detailTextLabel.text = @"Enviar a UCI";
+        cell.imageView.image = [UIImage imageNamed:@"uci_icon.png"];
+    }
+    
+    return cell;
+}
+
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if ([segue.identifier isEqualToString:@"addHepatitis"]){
-        UALAddHepatitisViewController* destino = [segue destinationViewController];
+    if ([segue.identifier isEqualToString:@"addPostOperatorio"]){
+        UALAddPostOperatorioViewController* destino = [segue destinationViewController];
         destino.idPaciente = self.idPaciente;
         destino.dniPaciente = self.dniPaciente;
         destino.idDiagSelected = -1;
         destino.delegate = self;
         
-    }else if ([segue.identifier isEqualToString:@"detalleHepatitis"]){
-        UALAddHepatitisViewController* destino = [segue destinationViewController];
+    }else if ([segue.identifier isEqualToString:@"detallePost"]){
+        UALAddPostOperatorioViewController* destino = [segue destinationViewController];
         destino.dniPaciente = self.dniPaciente;
         destino.idDiagSelected = self.idDiagSelected;
         destino.idPaciente = self.idPaciente;
         destino.delegate = self;
-        
     }
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"diagCell" forIndexPath:indexPath];
-    
-    NSInteger indexOfDiagnostico = [self.gestorBD.arrNombresCols indexOfObject:@"diagnostico"];
-    NSInteger indexOfFecha = [self.gestorBD.arrNombresCols indexOfObject:@"fecha"];
-
-
-    int diagnostico = [[[self.arrayDatos objectAtIndex:indexPath.row] objectAtIndex:indexOfDiagnostico]intValue];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", [[self.arrayDatos objectAtIndex: indexPath.row] objectAtIndex:indexOfFecha]];
-    
-    if(diagnostico == 1) cell.detailTextLabel.text = @"POSITIVO";
-    else cell.detailTextLabel.text = @"NEGATIVO";
-    if(diagnostico == 1) cell.imageView.image = [UIImage imageNamed:@"alert_icon.png"];
-    else cell.imageView.image = [UIImage imageNamed:@"ok_icon.png"];
-
-    
-    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -122,9 +124,10 @@
     
     self.idDiagSelected = [[[self.arrayDatos objectAtIndex:indexPath.row] objectAtIndex:indexOfId]intValue];
     
-    [self performSegueWithIdentifier:@"detalleHepatitis" sender:self];
+    [self performSegueWithIdentifier:@"detallePost" sender:self];
     
 }
+
 
 
 /*

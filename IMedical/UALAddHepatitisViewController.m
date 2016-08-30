@@ -11,7 +11,6 @@
 
 @interface UALAddHepatitisViewController ()
 
-@property (nonatomic, strong) GestorBD* gestorBD;
 @property (weak, nonatomic) IBOutlet UISlider *edad;
 @property (weak, nonatomic) IBOutlet UISwitch *sexo;
 @property (weak, nonatomic) IBOutlet UISwitch *ascitis;
@@ -23,6 +22,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *edadLabel;
 @property (weak, nonatomic) IBOutlet UILabel *albuLabel;
 @property (weak, nonatomic) IBOutlet UILabel *sgotLabel;
+
+@property (nonatomic, strong) NSArray* arrayDatos;
+@property (nonatomic, strong) GestorBD* gestorBD;
 
 
 - (IBAction)guardarDatos:(id)sender;
@@ -50,12 +52,34 @@
                      initWithDatabaseFilename:@"imedicalF.sqlite"];
     self.title = [NSString stringWithFormat:@"Diagn. %@", self.dniPaciente];
     if (self.idDiagSelected != -1) {
-        self.edad.value = self.edadDiagSelected;
-        self.albumina.value = self.albuminaDiagSelected;
-        self.sgot.value = self.sgotDiagSelected;
-        self.edadLabel.text = [NSString stringWithFormat:@"%i", self.edadDiagSelected];
-        self.albuLabel.text = [NSString stringWithFormat:@"%i", self.sgotDiagSelected];
-        self.sgotLabel.text = [NSString stringWithFormat:@"%f", self.albuminaDiagSelected];
+        NSString *consulta = [NSString stringWithFormat: @"select * from diagnostico_hepatitis where id=%d",self.idDiagSelected];
+        if (self.arrayDatos != nil) self.arrayDatos = nil;
+        self.arrayDatos = [[NSArray alloc] initWithArray:[self.gestorBD
+                                                          selectFromDB:consulta]];
+        
+        int edad = [[[self.arrayDatos objectAtIndex:0] objectAtIndex:1]intValue];
+        int sexo = [[[self.arrayDatos objectAtIndex:0] objectAtIndex:2]intValue];
+        int ascitis = [[[self.arrayDatos objectAtIndex:0] objectAtIndex:4]intValue];
+        int spiders = [[[self.arrayDatos objectAtIndex:0] objectAtIndex:5]intValue];
+        double albumina = [[[self.arrayDatos objectAtIndex:0] objectAtIndex:6]doubleValue];
+        int sgot = [[[self.arrayDatos objectAtIndex:0] objectAtIndex:7]intValue];
+        int agrand = [[[self.arrayDatos objectAtIndex:0] objectAtIndex:8]intValue];
+        int firm = [[[self.arrayDatos objectAtIndex:0] objectAtIndex:9]intValue];
+
+
+        
+        self.edadLabel.text = [NSString stringWithFormat:@"%i",(int)edad];
+        self.edad.value = edad;
+        self.albuLabel.text = [NSString stringWithFormat:@"%f",albumina];
+        self.albumina.value = albumina;
+        self.sgotLabel.text = [NSString stringWithFormat:@"%i",(int)sgot];
+        self.sgot.value = sgot;
+        
+        if (sexo != 1) [self.sexo setOn:NO animated:YES];
+        if (ascitis != 1) [self.ascitis setOn:NO animated:YES];
+        if (spiders != 1) [self.spiders setOn:NO animated:YES];
+        if (agrand != 1) [self.agrand setOn:NO animated:YES];
+        if (firm != 1) [self.firm setOn:NO animated:YES];
 
 
     
@@ -65,73 +89,72 @@
 - (IBAction) guardarDatos:(id) sender{
     
     NSString *consulta;
-    /*if(self.idPacienteEdit == -1){*/
-    
     NSInteger diagnostico;
-        if(![self.ascitis isOn]){
-            if (![self.spiders isOn]) {
+    if(![self.ascitis isOn]){
+        if (![self.spiders isOn]) {
+            diagnostico = 0;
+        }else{
+            if (![self.sexo isOn]) {
                 diagnostico = 0;
             }else{
-                if (![self.sexo isOn]) {
-                    diagnostico = 0;
-                }else{
-                    if (![self.firm isOn]) {
-                        if (self.edad.value <= 40) {
-                            diagnostico = 0;
-
-                        }else{
-                            diagnostico = 1;
-                        }
-                    }else{
-                        if (self.sgot.value <= 101) {
-                            diagnostico = 0;
-                        }else{
-                            if (![self.agrand isOn]) {
-                                diagnostico = 1;
-                            }else{
-                                diagnostico = 0;
-                            }
-                        }
-                    }
-                }
-            }
-        }else{
-            if (self.albumina.value <= 2.8) {
-                diagnostico = 1;
-            }else{
                 if (![self.firm isOn]) {
-                    if (self.albumina.value <= 2.9) {
+                    if (self.edad.value <= 40) {
                         diagnostico = 0;
-                    }else {
+                        
+                    }else{
                         diagnostico = 1;
                     }
                 }else{
-                    diagnostico = 0;
+                    if (self.sgot.value <= 101) {
+                        diagnostico = 0;
+                    }else{
+                        if (![self.agrand isOn]) {
+                            diagnostico = 1;
+                        }else{
+                            diagnostico = 0;
+                        }
+                    }
                 }
             }
         }
-        NSInteger sexo = 0;
-        if ([self.sexo isOn]) sexo = 1;
-        NSInteger ascitis = 0;
-        if ([self.ascitis isOn]) ascitis = 1;
-        NSInteger agrand = 0;
-        if ([self.agrand isOn]) agrand = 1;
-        NSInteger firm = 0;
-        if ([self.firm isOn]) firm = 1;
-        NSInteger spiders = 0;
-        if ([self.spiders isOn]) firm = 1;
-    
-    float f = self.albumina.value;
-    int i = self.sgot.value;
+    }else{
+        if (self.albumina.value <= 2.8) {
+            diagnostico = 1;
+        }else{
+            if (![self.firm isOn]) {
+                if (self.albumina.value <= 2.9) {
+                    diagnostico = 0;
+                }else {
+                    diagnostico = 1;
+                }
+            }else{
+                diagnostico = 0;
+            }
+        }
+    }
+    NSInteger sexo = 0;
+    if ([self.sexo isOn]) sexo = 1;
+    NSInteger ascitis = 0;
+    if ([self.ascitis isOn]) ascitis = 1;
+    NSInteger agrand = 0;
+    if ([self.agrand isOn]) agrand = 1;
+    NSInteger firm = 0;
+    if ([self.firm isOn]) firm = 1;
+    NSInteger spiders = 0;
+    if ([self.spiders isOn]) spiders = 1;
+
+    if(self.idDiagSelected == -1){
     
     NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"dd-MM-yyyy"];
     NSString *fecha = (@"%@",[dateFormatter stringFromDate:[NSDate date]]);
 
-        consulta = [NSString stringWithFormat: @"insert into diagnostico_hepatitis values (null, %f, %i,'%@', %i, %f, %f, %i, %i, %i, %i, %i)", self.edad.value, sexo, fecha, ascitis, self.albumina.value, self.sgot.value, spiders, agrand, firm, diagnostico, self.idPaciente];
-    /*}else{
-        consulta = [NSString stringWithFormat:@"update paciente set nombre='%@', apellidos='%@', dni='%@', numSegSocial='%@' where id=%d", self.nombre.text, self.apellidos.text, self.dni.text, self.numSegSocial.text, self.idPacienteEdit];
-    }*/
+        consulta = [NSString stringWithFormat: @"insert into diagnostico_hepatitis values (null, %i, %i,'%@', %i, %i, %f, %i, %i, %i, %i, %i)", (int)self.edad.value, sexo, fecha, ascitis, spiders, self.albumina.value, (int)self.sgot.value, agrand, firm, diagnostico, self.idPaciente];
+        
+    }else{
+        consulta = [NSString stringWithFormat:@"update diagnostico_hepatitis set edad='%i', sexo='%i', ascitis='%i', spiders='%i', albumina='%f', sgot='%i', agrandamientoHigado='%i', firmHigado='%i', diagnostico='%i' where id=%d", (int)self.edad.value, sexo, ascitis, spiders, self.albumina.value, (int)self.sgot.value, agrand, firm, diagnostico, self.idDiagSelected];
+    }
+    
     [self.gestorBD executeQuery:consulta];
     if (self.gestorBD.filasAfectadas !=0){
         NSLog(@"Consulta ejecutada con ÉXITO...%d filas",

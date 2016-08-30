@@ -17,7 +17,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    #ifdef VERSION2
+    self.title = @"IMedical V2";
+    #elif VERSION1
+    self.title = @"IMedical V1";
+    #elif VERSION3
+    self.title = @"IMedical V3";
+    #endif
 }
 
 - (void)didReceiveMemoryWarning
