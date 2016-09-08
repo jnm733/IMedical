@@ -9,9 +9,10 @@
 #import "UALAddPacienteViewController.h"
 #import "GestorBD.h"
 
-@interface UALAddPacienteViewController ()
+@interface UALAddPacienteViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 - (IBAction)ocultarTeclado:(id)sender;
+- (IBAction)selectPhoto:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UITextField *nombre;
 @property (weak, nonatomic) IBOutlet UITextField *apellidos;
@@ -19,6 +20,11 @@
 @property (weak, nonatomic) IBOutlet UIDatePicker *fechaNacimiento;
 @property (weak, nonatomic) IBOutlet UITextField *numSegSocial;
 @property (nonatomic, strong) GestorBD* gestorBD;
+@property (weak, nonatomic) IBOutlet UIButton *btnGallery;
+@property (weak, nonatomic) IBOutlet UIImageView *ivPickedImage;
+
+@property (nonatomic) NSString *imageName;
+
 
 @end
 
@@ -40,9 +46,9 @@
     NSString *theDate = [fecha stringFromDate:self.fechaNacimiento.date];
     NSString *consulta;
     if(self.idPacienteEdit == -1){
-        consulta = [NSString stringWithFormat: @"insert into paciente values (null, '%@','%@','%@', '%@', '%@', '%i')", self.nombre.text, self.apellidos.text, self.dni.text, theDate, self.numSegSocial.text, self.idHospital];
+        consulta = [NSString stringWithFormat: @"insert into paciente values (null, '%@', '%@', '%@','%@', '%@', '%@', '%i')", self.imageName , self.nombre.text, self.apellidos.text, self.dni.text, theDate, self.numSegSocial.text, self.idHospital];
     }else{
-        consulta = [NSString stringWithFormat:@"update paciente set nombre='%@', apellidos='%@', dni='%@', numSegSocial='%@' where id=%d", self.nombre.text, self.apellidos.text, self.dni.text, self.numSegSocial.text, self.idPacienteEdit];
+        consulta = [NSString stringWithFormat:@"update paciente set imagen = '%@', nombre='%@', apellidos='%@', dni='%@', numSegSocial='%@' where id=%d", self.imageName , self.nombre.text, self.apellidos.text, self.dni.text, self.numSegSocial.text, self.idPacienteEdit];
     }
     [self.gestorBD executeQuery:consulta];
     if (self.gestorBD.filasAfectadas !=0){
@@ -60,9 +66,10 @@
 {
     [super viewDidLoad];
     self.gestorBD = [[GestorBD alloc]
-                     initWithDatabaseFilename:@"imedicalF.sqlite"];
+                     initWithDatabaseFilename:@"imedicalFinal.sqlite"];
     if(self.idPacienteEdit == -1) {
         self.title = [NSString stringWithFormat:@"Nuevo Paciente %@", self.nombreHospital];
+        
         
         
     }else{
@@ -71,6 +78,12 @@
         self.apellidos.text = self.apellidosPacienteEdit;
         self.dni.text = self.dniPacienteEdit;
         self.numSegSocial.text = self.numSegSocialPacienteEdit;
+        
+        NSData *pngData = [NSData dataWithContentsOfFile:self.imagenPacienteEdit];
+        UIImage *image = [UIImage imageWithData:pngData];
+        self.ivPickedImage.image = image;
+
+
         
         NSDateFormatter *fecha = [[NSDateFormatter alloc] init];
         [fecha setDateFormat:@"dd-MM-yyyy"];
@@ -100,5 +113,49 @@
 */
 
 - (IBAction)ocultarTeclado:(id)sender {
+}
+
+- (IBAction)selectPhoto:(id)sender {
+    
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    [self presentViewController:picker animated:YES completion:NULL];}
+
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    self.ivPickedImage.image = chosenImage;
+    
+    
+    NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    NSMutableString *randomString = [NSMutableString stringWithCapacity: 10];
+    
+    for (int i=0; i<10; i++) {
+        [randomString appendFormat: @"%C", [letters characterAtIndex: arc4random_uniform([letters length])]];
+    }
+    self.imageName = [NSString stringWithFormat:@"%@.png", randomString];
+   
+    NSData *pngData = UIImagePNGRepresentation(chosenImage);
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsPath = [paths objectAtIndex:0]; //Get the docs directory
+    NSString *filePath = [documentsPath stringByAppendingPathComponent:self.imageName];//Add the file name
+    self.imageName = filePath;
+    [pngData writeToFile:filePath atomically:YES]; //Write the file
+
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+    
+}
+
+
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 @end

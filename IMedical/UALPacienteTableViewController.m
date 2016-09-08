@@ -22,6 +22,8 @@
 @property (nonatomic) NSString* dniPacienteSelected;
 @property (nonatomic) NSString* fechaNacimientoPacienteSelected;
 @property (nonatomic) NSString* numSegSocialPacienteSelected;
+@property (nonatomic) NSString* imagenPacienteSelected;
+
 
 
 
@@ -44,7 +46,7 @@
     
     self.tabla.delegate = self;
     self.tabla.dataSource = self;
-    self.gestorBD = [[GestorBD alloc] initWithDatabaseFilename:@"imedicalF.sqlite"];
+    self.gestorBD = [[GestorBD alloc] initWithDatabaseFilename:@"imedicalFinal.sqlite"];
     self.title = [NSString stringWithFormat:@"Pacientes %@", self.nombreHospital];
 
     [self cargarDatos];
@@ -87,6 +89,8 @@
         destino.dniPacienteEdit = self.dniPacienteSelected;
         destino.fechaNacimientoPacienteEdit = self.fechaNacimientoPacienteSelected;
         destino.numSegSocialPacienteEdit = self.numSegSocialPacienteSelected;
+        destino.imagenPacienteEdit = self.imagenPacienteSelected;
+
         
     }else if ([segue.identifier isEqualToString:@"detallePaciente"]){
         UALPacienteDetalleViewController* destino = [segue destinationViewController];
@@ -98,6 +102,8 @@
         destino.dniPaciente = self.dniPacienteSelected;
         destino.fechaNacimientoPaciente = self.fechaNacimientoPacienteSelected;
         destino.numSegSocialPaciente = self.numSegSocialPacienteSelected;
+        destino.imagenPaciente = self.imagenPacienteSelected;
+
     }
 
 }
@@ -111,6 +117,8 @@
     NSInteger indexOfDNI = [self.gestorBD.arrNombresCols indexOfObject:@"dni"];
     NSInteger indexOffecha = [self.gestorBD.arrNombresCols indexOfObject:@"fechaNacimiento"];
     NSInteger indexOfSegSocial = [self.gestorBD.arrNombresCols indexOfObject:@"numSegSocial"];
+    NSInteger indexOfImagen = [self.gestorBD.arrNombresCols indexOfObject:@"imagen"];
+
 
 
     
@@ -122,6 +130,7 @@
     self.fechaNacimientoPacienteSelected = [NSString stringWithFormat:@"%@", [[self.arrayDatos objectAtIndex: indexPath.row] objectAtIndex:indexOffecha]];
     self.dniPacienteSelected = [NSString stringWithFormat:@"%@", [[self.arrayDatos objectAtIndex: indexPath.row] objectAtIndex:indexOfDNI]];
     self.numSegSocialPacienteSelected = [NSString stringWithFormat:@"%@", [[self.arrayDatos objectAtIndex: indexPath.row] objectAtIndex:indexOfSegSocial]];
+    self.imagenPacienteSelected = [NSString stringWithFormat:@"%@", [[self.arrayDatos objectAtIndex: indexPath.row] objectAtIndex:indexOfImagen]];
     
     
     [self performSegueWithIdentifier:@"detallePaciente" sender:self];
@@ -171,9 +180,9 @@
     NSInteger indexOfApellidos = [self.gestorBD.arrNombresCols indexOfObject:@"apellidos"];
     NSInteger indexOfDni = [self.gestorBD.arrNombresCols indexOfObject:@"dni"];
     
-    
     cell.textLabel.text = [NSString stringWithFormat:@"%@ , %@", [NSString stringWithFormat:@"%@", [[self.arrayDatos objectAtIndex: indexPath.row] objectAtIndex:indexOfApellidos]], [[self.arrayDatos objectAtIndex: indexPath.row] objectAtIndex:indexOfNombre]];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", [[self.arrayDatos objectAtIndex: indexPath.row] objectAtIndex:indexOfDni]];
+
     
     return cell;
 }
@@ -185,6 +194,7 @@
     NSInteger indexOfDNI = [self.gestorBD.arrNombresCols indexOfObject:@"dni"];
     NSInteger indexOfFecha = [self.gestorBD.arrNombresCols indexOfObject:@"fechaNacimiento"];
     NSInteger indexOfSegSocial = [self.gestorBD.arrNombresCols indexOfObject:@"numSegSocial"];
+    NSInteger indexOfImagen = [self.gestorBD.arrNombresCols indexOfObject:@"imagen"];
 
 
     
@@ -196,6 +206,8 @@
     self.dniPacienteSelected = [NSString stringWithFormat:@"%@", [[self.arrayDatos objectAtIndex: indexPath.row] objectAtIndex:indexOfDNI]];
     self.fechaNacimientoPacienteSelected = [NSString stringWithFormat:@"%@", [[self.arrayDatos objectAtIndex: indexPath.row] objectAtIndex:indexOfFecha]];
     self.numSegSocialPacienteSelected = [NSString stringWithFormat:@"%@", [[self.arrayDatos objectAtIndex: indexPath.row] objectAtIndex:indexOfSegSocial]];
+    self.imagenPacienteSelected = [NSString stringWithFormat:@"%@", [[self.arrayDatos objectAtIndex: indexPath.row] objectAtIndex:indexOfImagen]];
+    
     
     [self performSegueWithIdentifier:@"editPaciente" sender:self];
     

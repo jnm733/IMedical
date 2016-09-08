@@ -25,6 +25,8 @@ delegate;
 @property (nonatomic) NSString* dniPacienteEdit;
 @property (nonatomic) NSString* fechaNacimientoPacienteEdit;
 @property (nonatomic) NSString* numSegSocialPacienteEdit;
+@property (nonatomic) NSString* imagenPacienteEdit;
+
 
 
 

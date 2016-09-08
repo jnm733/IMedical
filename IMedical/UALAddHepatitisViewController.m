@@ -49,7 +49,7 @@
 {
     [super viewDidLoad];
     self.gestorBD = [[GestorBD alloc]
-                     initWithDatabaseFilename:@"imedicalF.sqlite"];
+                     initWithDatabaseFilename:@"imedicalFinal.sqlite"];
     self.title = [NSString stringWithFormat:@"Diagn. %@", self.dniPaciente];
     if (self.idDiagSelected != -1) {
         NSString *consulta = [NSString stringWithFormat: @"select * from diagnostico_hepatitis where id=%d",self.idDiagSelected];
@@ -147,7 +147,7 @@
     
     NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"dd-MM-yyyy"];
-    NSString *fecha = (@"%@",[dateFormatter stringFromDate:[NSDate date]]);
+    NSString *fecha = ([NSString stringWithFormat:@"%@",[dateFormatter stringFromDate:[NSDate date]]]);
 
         consulta = [NSString stringWithFormat: @"insert into diagnostico_hepatitis values (null, %i, %i,'%@', %i, %i, %f, %i, %i, %i, %i, %i)", (int)self.edad.value, sexo, fecha, ascitis, spiders, self.albumina.value, (int)self.sgot.value, agrand, firm, diagnostico, self.idPaciente];
         

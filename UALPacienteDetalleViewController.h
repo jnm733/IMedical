@@ -19,5 +19,7 @@
 @property (nonatomic) NSString* dniPaciente;
 @property (nonatomic) NSString* fechaNacimientoPaciente;
 @property (nonatomic) NSString* numSegSocialPaciente;
+@property (nonatomic) NSString* imagenPaciente;
+
 
 @end

@@ -56,7 +56,7 @@
 {
     [super viewDidLoad];
     self.gestorBD = [[GestorBD alloc]
-                     initWithDatabaseFilename:@"imedicalF.sqlite"];
+                     initWithDatabaseFilename:@"imedicalFinal.sqlite"];
     self.title = [NSString stringWithFormat:@"Diagn. %@", self.dniPaciente];
 
     
@@ -97,24 +97,24 @@
     NSString *consulta;
     NSInteger decision = 1;
     
-    if (self.estTemp.selectedSegmentIndex == 2) {
-        if (self.estPresion.selectedSegmentIndex == 0) {
-            decision = 1;
+    if (self.tempInt.value > 37) {
+        if (self.tempExt.value > 36) {
+            decision = 3;
         }else{
             decision = 2;
         }
-    }else{
-        if(self.tempInt.value > 37){
-            if(self.tempExt.value > 36.5){
-                decision = 3;
-            }
+    }else if (self.tempInt.value < 36){
+        if (self.estTemp.selectedSegmentIndex == 0) {
+            decision = 1;
+        }else{
+            decision = 2;
         }
     }
     if(self.idDiagSelected == -1){
     
     NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"dd-MM-yyyy"];
-    NSString *fecha = (@"%@",[dateFormatter stringFromDate:[NSDate date]]);
+    NSString *fecha = ([NSString stringWithFormat:@"%@",[dateFormatter stringFromDate:[NSDate date]]]);
     
     
     consulta = [NSString stringWithFormat: @"insert into diagnostico_postoperatorio values (null, '%@', %f,%f, %i, %i, %i, %i, %i, %i, %i)", fecha, self.tempInt.value, self.tempExt.value, (int)self.sistolica.value, (int)self.diastolica.value, (int)self.comfort.value, self.estPresion.selectedSegmentIndex,self.estTemp.selectedSegmentIndex, decision, self.idPaciente];

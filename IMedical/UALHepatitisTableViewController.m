@@ -38,7 +38,7 @@
     
     self.tabla.delegate = self;
     self.tabla.dataSource = self;
-    self.gestorBD = [[GestorBD alloc] initWithDatabaseFilename:@"imedicalF.sqlite"];
+    self.gestorBD = [[GestorBD alloc] initWithDatabaseFilename:@"imedicalFinal.sqlite"];
     self.title = [NSString stringWithFormat:@"Diagnósticos Hepatitis"];
     
     [self cargarDatos];

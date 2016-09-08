@@ -65,7 +65,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.gestorBD = [[GestorBD alloc]
-                     initWithDatabaseFilename:@"imedicalF.sqlite"];
+                     initWithDatabaseFilename:@"imedicalFinal.sqlite"];
     if(self.idHospitalEdit == -1) {
         self.title = @"Nuevo Hospital";
         

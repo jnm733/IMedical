@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *dni;
 @property (weak, nonatomic) IBOutlet UIButton *postButton;
 @property (weak, nonatomic) IBOutlet UILabel *postLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *imagen;
 
 @end
 
@@ -37,6 +38,10 @@
     self.title = [NSString stringWithFormat:@"%@, %@", self.nombrePaciente, self.dniPaciente];
     self.nombre.text = [NSString stringWithFormat:@"%@, %@", self.apellidosPaciente, self.nombrePaciente];
     self.dni.text = self.dniPaciente;
+    NSData *pngData = [NSData dataWithContentsOfFile:self.imagenPaciente];
+    UIImage *image = [UIImage imageWithData:pngData];
+    self.imagen.image = image;
+
     #ifndef VERSION3
     self.postButton.hidden = YES;
     self.postLabel.hidden = YES;
